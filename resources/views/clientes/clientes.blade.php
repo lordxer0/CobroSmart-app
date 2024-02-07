@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Clientes</title>
 </head>
 <body>
+  @include('layouts.navigation')
     <div class="mx-20 mt-24 grid">
         <div class="text-center">
           <h1 class="mb-8 text-center text-3xl font-bold">Clientes</h1>
@@ -16,7 +17,7 @@
           <a href="" class="rounded border border-sky-600 px-5 py-1.5 font-medium text-sky-600 hover:bg-sky-600 hover:text-white">Atras</a>
         </div>
         <div class="shadow-md sm:rounded-lg">
-          <table class="w-full text-left text-sm text-gray-500 rtl:text-right">
+          <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-gray-50 text-xs uppercase text-gray-700">
               <tr>
                 <th scope="col" class="px-6 py-3">Product name</th>
