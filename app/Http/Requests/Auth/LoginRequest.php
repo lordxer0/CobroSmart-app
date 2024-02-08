@@ -28,7 +28,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'correo_electronico' => ['required', 'string', 'email'],
-            'contrasena' => ['required', 'string'],
+            'contrasena' => ['required'],
         ];
     }
 
@@ -45,7 +45,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'correo_electronico' => trans('auth.failed'),
             ]);
         }
 

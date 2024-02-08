@@ -1,22 +1,30 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
         <div>
             <x-input-label for="correo" :value="__('Correo electrónico')" />
-            <x-text-input id="correo" class="block mt-1 w-full" type="email" name="correo_electrónico" :value="old('Correo electrónico')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('Correo electrónico')" class="mt-2" />
+            <x-text-input id="correo" class="block mt-1 w-full" type="email" name="correo_electronico" :value="old('correo_electronico')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('correo_electronico')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="contraseña" :value="__('Contraseña')" />
+            <x-input-label for="contrasena" :value="__('Contraseña')" />
 
-            <x-text-input id="contraseña" class="block mt-1 w-full"
+            <x-text-input id="contrasena" class="block mt-1 w-full"
                             type="password"
                             name="contrasena"
                             required autocomplete="current-password" />
