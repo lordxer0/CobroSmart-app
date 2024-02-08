@@ -23,7 +23,7 @@ class Usuarios extends Authenticatable
         'apellidos',
         'correo_electronico',
         'direccion',
-        'contrasena',
+        'password',
         'email_verified_at',
         'telefono',
     ];
@@ -34,7 +34,7 @@ class Usuarios extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'contrasena',
+        'password',
         'remember_token',
     ];
 

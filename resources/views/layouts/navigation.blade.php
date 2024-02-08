@@ -53,8 +53,12 @@
               <h1 class="mt-1 cursor-pointer rounded-md p-2 hover:bg-gray-700">Friends</h1>
             </div>
             <div class="mt-3 flex cursor-pointer items-center rounded-md p-2.5 px-4 duration-300 hover:bg-blue-600 dark:hover:bg-slate-400">
-              <i class="bi bi-box-arrow-in-right"></i>
-              <span class="ml-4 text-[15px] text-gray-200">Logout</span>
+              <form action="{{ route('logout') }}" method="post" id="logout">
+                @csrf
+                <i class="bi bi-box-arrow-in-right"></i>
+                {{-- pto yair >:v --}}
+                <span class="ml-4 text-[15px] text-gray-200" onclick="document.querySelector('#logout').submit()">Logout</span>
+              </form>
             </div>
           </div>
           <x-icon-darkMode />
