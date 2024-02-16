@@ -1,3 +1,4 @@
+@extends('layouts.navigation')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,8 @@
     <title>Agregar prestamo</title>
 </head>
 <body>
-    <h1 class="mb-2 mt-9 text-center text-2xl font-bold sm:text-3xl">Agregar prestamo</h1>
+  @section('content')
+    <h1 class="mb-8 mt-9 text-center text-2xl font-bold sm:text-3xl">Agregar prestamo</h1>
     <div class="flex justify-center bg-gray-50">
       <form action="" class="w-full justify-center border p-6 shadow-md sm:w-1/2">
         <div class="mb-5">
@@ -24,15 +26,6 @@
         <div class="mb-5">
           <label for="cuotas">Número cuotas</label>
           <input type="number" name="numero_cuotas" id="cuotas" class="w-full rounded-md border p-2" placeholder="Ingrese el número de cuotas" required />
-        </div>
-        <div>
-            <div class="mt-2"> <select class="select2 w-full">
-                <option value="1">Leonardo DiCaprio</option>
-                <option value="2">Johnny Deep</option>
-                <option value="3">Robert Downey, Jr</option>
-                <option value="4">Samuel L. Jackson</option>
-                <option value="5">Morgan Freeman</option>
-            </select> </div>
         </div>
         <div class="mb-5">
           <label for="periodicidad">Periodicidad</label>
@@ -49,10 +42,6 @@
         </div>
       </form>
     </div>
-    <script>
-        $(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-    </script>
+  @endsection
 </body>
 </html>

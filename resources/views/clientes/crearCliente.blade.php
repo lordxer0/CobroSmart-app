@@ -1,14 +1,15 @@
+@extends('layouts.navigation')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Crear cliente</title>
 </head>
 <body>
-    <h1 class="mb-2 mt-9 text-center text-2xl font-bold sm:text-3xl">Agregar cliente</h1>
+  @section('content')
+    <h1 class="mb-8 mt-9 text-center text-2xl font-bold sm:text-3xl">Agregar cliente</h1>
     <div class="flex justify-center bg-gray-50">
       <form action="" class="w-full justify-center border p-6 shadow-md sm:w-1/2">
         <div class="mb-5">
@@ -54,5 +55,6 @@
         </div>
       </form>
     </div>
+  @endsection
 </body>
 </html>

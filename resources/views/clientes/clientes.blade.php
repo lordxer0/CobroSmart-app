@@ -1,3 +1,4 @@
+@extends('layouts.navigation')
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -8,7 +9,7 @@
     <title>Clientes</title>
 </head>
 <body>
-  @include('layouts.navigation')
+  @section('content')
     <div class="mx-20 mt-24 grid">
         <div class="text-center">
           <h1 class="mb-8 text-center text-3xl font-bold">Clientes</h1>
@@ -167,5 +168,6 @@
           </table>
         </div>
     </div>
+  @endsection
 </body>
 </html>

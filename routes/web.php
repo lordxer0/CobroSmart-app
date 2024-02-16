@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/prestamos', function () {
-    return view('prestamos.prestamos');
+Route::get('/', function () {
+    return view('clientes.editarCliente');
 });
 
 Route::get('/dashboard', function () {
