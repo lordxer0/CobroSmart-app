@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ClientesController;
 use App\Models\Clientes;
 use Illuminate\Support\Facades\Route;
 
@@ -18,21 +19,20 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('clientes.editarCliente');
-});
-
 Route::get('/prestamos', function () {
     return view('prestamos.prestamos');
 })->middleware(['auth', 'verified'])->name('prestamos');
 
-Route::get('/clientes', [Clientes::class,'index'])->middleware(['auth', 'verified'])->name('clientes');
-Route::post('/saveNewClient', [App\Http\Controllers\ClientController::class, 'guardarNuevoCliente'])->name('saveNewClient');
-Route::get('/editClient/{id}', [App\Http\Controllers\ClientController::class, 'editClient'])->name('editClient');
+//rutas de clientes
+Route::get('/clientes', [ClientesController::class,'index'])->middleware(['auth', 'verified'])->name('clientes');
 
-Route::get('/crearclientes', function () {
+Route::get('/crearClientes', function () {
     return view('clientes.crearCliente');
 })->middleware(['auth', 'verified'])->name('crearclientes');
+
+Route::get('/editarCliente/{id}', [ClientesController::class, 'editarCliente'])->name('editarCliente');
+
+Route::post('/guardarNuevoCliente', [ClientesController::class, 'guardarNuevoCliente'])->name('guardarNuevoCliente');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
