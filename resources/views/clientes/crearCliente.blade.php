@@ -10,6 +10,9 @@
 <body>
   @section('content')
     <h1 class="mb-8 mt-9 text-center text-2xl font-bold sm:text-3xl">Agregar cliente</h1>
+    <div class="mb-1 flex justify-end">
+      <a href="{{route('clientes')}}" class="rounded border border-sky-600 px-5 py-1.5 font-medium text-sky-600 hover:bg-sky-600 hover:text-white">Atras</a>
+    </div>
     <div class="flex justify-center bg-gray-50">
       <form action="" class="w-full justify-center border p-6 shadow-md sm:w-1/2">
         <div class="mb-5">

@@ -15,7 +15,10 @@
           <h1 class="mb-8 text-center text-3xl font-bold">Clientes</h1>
         </div>
         <div class="mb-1 flex justify-end">
-          <a href="" class="rounded border border-sky-600 px-5 py-1.5 font-medium text-sky-600 hover:bg-sky-600 hover:text-white">Atras</a>
+          <a href="{{route('crearclientes')}}" class="rounded border border-sky-600 px-5 py-1.5 font-medium text-sky-600 hover:bg-sky-600 hover:text-white">Crear Cliente</a>
+        </div>
+        <div class="mb-1 flex justify-end">
+          <a href="{{route('dashboard')}}" class="rounded border border-sky-600 px-5 py-1.5 font-medium text-sky-600 hover:bg-sky-600 hover:text-white">Atras</a>
         </div>
         <div class="shadow-md sm:rounded-lg">
           <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
