@@ -18,6 +18,10 @@
           <div class="text-center">
             <h1 class="mb-8 text-center text-3xl font-bold">Prestamos</h1>
           </div>
+          <x-alert-success />
+          <div class="text-end mb-6">
+            <a href="/crearPrestamo" class="border border-sky-600 p-2 rounded-md text-sky-600 hover:bg-sky-600 hover:text-white">Crear prestamo</a>
+          </div>
           <div class="shadow-md sm:rounded-lg" >
               <table class="text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400" id="dataTable">
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700">
@@ -170,12 +174,5 @@
           </div>
       </div>
   @endsection
-      
 </body>
-<script>
-    $(document).ready(function () {
-        $('#dataTable').DataTable();
-
-    });
-</script>
 </html>

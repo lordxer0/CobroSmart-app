@@ -41,7 +41,7 @@ class ClientesController extends Controller
             $guardado
         );
 
-        return redirect()->route('clientes');
+        return redirect()->route('clientes')->with('msg', 'Proceso realizado exitosamente');
     }
 
     public function editarCliente($id)

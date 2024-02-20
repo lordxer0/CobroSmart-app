@@ -59,7 +59,7 @@
           <textarea name="observaciones" id="observaciones" cols="30" rows="5" class="w-full rounded-md border" >{{($cliente->observaciones) ?? '' }}</textarea>
         </div>
         <div>
-          <button class="w-full rounded-md bg-sky-600 p-2 text-white hover:bg-sky-700">Guardar</button>
+          <button class="w-full rounded-md bg-sky-600 p-2 text-white hover:bg-sky-700">{{__(!empty($cliente) ? 'Actualizar' : 'Guardar')}}</button>
         </div>
       </form>
     </div>

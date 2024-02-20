@@ -19,9 +19,19 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Rutas prestamos
 Route::get('/prestamos', function () {
     return view('prestamos.prestamos');
 })->middleware(['auth', 'verified'])->name('prestamos');
+
+Route::get('/crearPrestamo', function () {
+    return view('prestamos.crearPrestamo');
+})->middleware(['auth', 'verified'])->name('crearPrestamo');
+
+// Rutas carteras
+Route::get('/carteras', function () {
+    return view('carteras.carteras');
+})->middleware(['auth', 'verified'])->name('carteras');
 
 //rutas de clientes
 Route::get('/clientes', [ClientesController::class,'index'])->middleware(['auth', 'verified'])->name('clientes');

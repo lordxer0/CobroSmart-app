@@ -8,8 +8,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="{{asset('js/darkMode.js')}}"></script>
     <script src="{{asset('js/navigation.js')}}"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <script src="{{asset('js/prestamo.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   </head>
   <body>
     {{-- header --}}
@@ -19,8 +21,8 @@
     <x-sidebar />
     {{-- end sidebar --}} 
     {{-- content --}}
-    <div class="p-4 sm:ml-64">
-      <div class="mt-14 h-screen rounded-lg border-gray-200 p-4 dark:border-gray-700">
+    <div class="p-4 sm:ml-64 bg-white">
+      <div class="mt-14 h-screen rounded-lg bg-white p-4 ">
         @yield('content')
       </div>
     </div>
