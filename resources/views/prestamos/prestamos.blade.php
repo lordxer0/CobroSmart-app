@@ -36,11 +36,11 @@
                 <tbody>
                   @foreach ($prestamosCliente as $prestamo)
                   <tr class="border-b odd:bg-white even:bg-gray-50">
-                    <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">{{ $prestamo->valor_prestamo }}</th>
-                    <td class="px-6 py-4 ">{{ $prestamo->cliente_id }}</td>
-                    <td class="px-6 py-4 ">{{ $prestamo->prestamo_id }}</td>
-                    <td class="px-6 py-4 ">{{ $prestamo->estado }}</td>
-                    <td class="px-6 py-4 ">{{ $prestamo->estado_prestamo_id}}</td>
+                    <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">{{ $prestamo->prestamos->valor_prestamo }}</th>
+                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->intereses }}</td>
+                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->valor_cuota }}</td>
+                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->num_cuotas }}</td>
+                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->periodicidad->nombre }}</td>
                     <td class="flex gap-1 px-6 py-4">
                       <a href="{{route('editarPrestamo',['id' => $prestamo->id])}}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-black ">
