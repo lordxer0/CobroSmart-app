@@ -28,6 +28,11 @@ class ClientesController extends Controller
         $clientes = Clientes::all();
         return view('clientes.clientes',compact('clientes'));
     }
+
+    public function crearCliente()
+    {   
+        return view('clientes.crearCliente');
+    }
     
     public function guardarNuevoCliente(Request $Request)
     {   

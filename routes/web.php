@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\PrestamosController;
+use App\Http\Controllers\PrestamosClienteController;
 use App\Models\Clientes;
 use Illuminate\Support\Facades\Route;
 
@@ -20,13 +22,15 @@ Route::get('/', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Rutas prestamos
-Route::get('/prestamos', function () {
-    return view('prestamos.prestamos');
-})->middleware(['auth', 'verified'])->name('prestamos');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/prestamos',[PrestamosController::class, 'index'])->name('prestamosindex');
+    Route::get('/prestamos/{id}', [PrestamosClienteController::class, 'prestamos'])->name('prestamos');
+    Route::get('/crearPrestamo/{id}', [PrestamosController::class, 'prestamos'])->middleware(['auth', 'verified'])->name('crearPrestamo');
+    Route::post('/guardarPrestamo', [PrestamosController::class, 'guardarPrestamo'])->name('guardarPrestamo');
+    Route::get('/editarPrestamo/{id}', [ClientesController::class, 'editarPrestamo'])->name('editarPrestamo');
+});
 
-Route::get('/crearPrestamo', function () {
-    return view('prestamos.crearPrestamo');
-})->middleware(['auth', 'verified'])->name('crearPrestamo');
+
 
 // Rutas carteras
 Route::get('/carteras', function () {
@@ -34,15 +38,12 @@ Route::get('/carteras', function () {
 })->middleware(['auth', 'verified'])->name('carteras');
 
 //rutas de clientes
-Route::get('/clientes', [ClientesController::class,'index'])->middleware(['auth', 'verified'])->name('clientes');
-
-Route::get('/crearClientes', function () {
-    return view('clientes.crearCliente');
-})->middleware(['auth', 'verified'])->name('crearclientes');
-
-Route::get('/editarCliente/{id}', [ClientesController::class, 'editarCliente'])->name('editarCliente');
-
-Route::post('/guardarNuevoCliente', [ClientesController::class, 'guardarNuevoCliente'])->name('guardarNuevoCliente');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/clientes', [ClientesController::class,'index'])->name('clientes');
+    Route::get('/crearCliente', [ClientesController::class,'CrearCliente'])->name('crearclientes');
+    Route::get('/editarCliente/{id}', [ClientesController::class, 'editarCliente'])->name('editarCliente');
+    Route::post('/guardarNuevoCliente', [ClientesController::class, 'guardarNuevoCliente'])->name('guardarNuevoCliente');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

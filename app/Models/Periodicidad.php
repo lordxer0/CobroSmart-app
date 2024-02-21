@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Periodicidad extends Model
 {
     use HasFactory;
+    protected $table = 'periodicidad';
+
 }
