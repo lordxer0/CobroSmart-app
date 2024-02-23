@@ -37,6 +37,10 @@ Route::get('/carteras', function () {
     return view('carteras.carteras');
 })->middleware(['auth', 'verified'])->name('carteras');
 
+Route::get('/crearCartera', function () {
+    return view('carteras.crearCartera');
+})->middleware(['auth', 'verified'])->name('crearCartera');
+
 //rutas de clientes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/clientes', [ClientesController::class,'index'])->name('clientes');

@@ -16,31 +16,34 @@
   @section('content')
       <div class="mx-20 mt-24 grid">
           <div class="text-center">
-            <h1 class="mb-8 text-center text-3xl font-bold">{{__('Prestamos de '. (!empty($cliente) ? $cliente->nombres.' '.$cliente->apellidos : ''))}}</h1>
+            <h1 class="mb-8 text-center text-3xl font-bold">{{__('Prestamos')}}</h1>
           </div>
           <x-alert-success />
           <div class="text-end mb-6">
-            <a href="{{route('crearPrestamo',['id' => $cliente->id])}}" class="border border-sky-600 p-2 rounded-md text-sky-600 hover:bg-sky-600 hover:text-white">Crear prestamo</a>
+            {{-- <a href="{{route('crearPrestamo',['id' => $cliente->id])}}" class="border border-sky-600 p-2 rounded-md text-sky-600 hover:bg-sky-600 hover:text-white">Crear prestamo</a> --}}
           </div>
           <div class="shadow-md sm:rounded-lg" >
               <table class="text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400" id="dataTable">
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700">
                   <tr>
+                    <th scope="col" class="px-6 py-3">{{__('#')}}</th>
                     <th scope="col" class="px-6 py-3">{{__('valor prestamo')}}</th>
                     <th scope="col" class="px-6 py-3">{{__('intereses')}}</th>
-                    <th scope="col" class="px-6 py-3">{{__('valor_cuota')}}</th>
-                    <th scope="col" class="px-6 py-3">{{__('num_cuotas')}}</th>
-                    <th scope="col" class="px-6 py-3">{{__('periodicidad_id')}}</th>
+                    <th scope="col" class="px-6 py-3">{{__('Valor cuota')}}</th>
+                    <th scope="col" class="px-6 py-3">{{__('Número cuotas')}}</th>
+                    <th scope="col" class="px-6 py-3">{{__('periodicidad')}}</th>
+                    <th scope="col" class="px-6 py-3">{{__('Acción')}}</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($prestamosCliente as $prestamo)
+                  @foreach ($prestamos as $prestamo)
                   <tr class="border-b odd:bg-white even:bg-gray-50">
-                    <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">{{ $prestamo->prestamos->valor_prestamo }}</th>
-                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->intereses }}</td>
-                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->valor_cuota }}</td>
-                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->num_cuotas }}</td>
-                    <td class="px-6 py-4 ">{{ $prestamo->prestamos->periodicidad->nombre }}</td>
+                    <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">{{ $prestamo->id }}</th>
+                    <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">{{ $prestamo->valor_prestamo }}</th>
+                    <td class="px-6 py-4 ">{{ $prestamo->intereses }} %</td>
+                    <td class="px-6 py-4 ">{{ $prestamo->valor_cuota }}</td>
+                    <td class="px-6 py-4 ">{{ $prestamo->num_cuotas }}</td>
+                    <td class="px-6 py-4 ">{{ $prestamo->periodicidad->nombre }}</td>
                     <td class="flex gap-1 px-6 py-4">
                       <a href="{{route('editarPrestamo',['id' => $prestamo->id])}}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-black ">

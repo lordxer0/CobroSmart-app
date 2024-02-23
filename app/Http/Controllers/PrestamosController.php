@@ -32,8 +32,8 @@ class PrestamosController extends Controller
      */
     public function index()
     {   
-        $Prestamos = Prestamos::all();
-        return view('prestamos.prestamos',compact('Prestamos'));
+        $prestamos = Prestamos::all();
+        return view('prestamos.prestamos',compact('prestamos'));
     }
     
     public function guardarPrestamo(Request $Request)

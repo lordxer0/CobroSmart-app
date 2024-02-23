@@ -24,7 +24,7 @@ class PrestamosClienteController extends Controller
         $cliente = Clientes::find($id);
         $prestamosCliente = PrestamosCliente::where('cliente_id', $id)->get();
         
-        return view('prestamos.prestamos', compact('prestamosCliente','cliente'));
+        return view('prestamos.prestamosCliente', compact('prestamosCliente','cliente'));
 
     }
 
