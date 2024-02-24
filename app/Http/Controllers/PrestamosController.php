@@ -65,7 +65,6 @@ class PrestamosController extends Controller
             DB::commit();
         } catch (\Throwable $e) {
             $mensaje = 'Fallo la Transaccion';
-            dd($e->getMessage());
             DB::rollback(); // test with comment, and without comment, check DB for results 😉
         }
        

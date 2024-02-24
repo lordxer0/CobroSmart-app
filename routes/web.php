@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarteraController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\PrestamosController;
@@ -33,13 +34,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 // Rutas carteras
-Route::get('/carteras', function () {
-    return view('carteras.carteras');
-})->middleware(['auth', 'verified'])->name('carteras');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/carteras', [CarteraController::class, 'index'])->name('carteras');
+    Route::get('/crearCartera', [CarteraController::class, 'crearCartera'])->name('crearCartera');
+    Route::post('/guardarCartera', [CarteraController::class, 'guardarCartera'])->name('guardarCartera');
+    Route::get('/editarCartera/{id}', [CarteraController::class, 'editarCartera'])->name('editarCartera');
+});
 
-Route::get('/crearCartera', function () {
-    return view('carteras.crearCartera');
-})->middleware(['auth', 'verified'])->name('crearCartera');
 
 //rutas de clientes
 Route::middleware(['auth', 'verified'])->group(function () {
