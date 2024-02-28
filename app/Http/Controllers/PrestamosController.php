@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Clientes;
 use App\Models\Prestamos;
+use App\Models\Cartera;
 use App\Models\Periodicidad;
 use App\Models\PrestamosCliente;
 use Illuminate\Http\Request;
@@ -76,8 +77,8 @@ class PrestamosController extends Controller
     {   
         $cliente = Clientes::find($id);
         $periodicidades = Periodicidad::all();
-        
-        return view('prestamos.crearPrestamo', compact('cliente','periodicidades'));
+        $carteras = Cartera::all();
+        return view('prestamos.crearPrestamo', compact('cliente','periodicidades', 'carteras'));
     }
 
 }

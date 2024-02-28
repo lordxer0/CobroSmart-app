@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+route::get('/detalle', function () {
+    return view('carteras.detalle');
+});
+
 // Rutas prestamos
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/prestamos',[PrestamosController::class, 'index'])->name('prestamosindex');
@@ -39,6 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/crearCartera', [CarteraController::class, 'crearCartera'])->name('crearCartera');
     Route::post('/guardarCartera', [CarteraController::class, 'guardarCartera'])->name('guardarCartera');
     Route::get('/editarCartera/{id}', [CarteraController::class, 'editarCartera'])->name('editarCartera');
+    Route::get('/detalleCartera/{id}', [CarteraController::class, 'detalleCartera'])->name('detalleCartera');
 });
 
 

@@ -11,7 +11,7 @@
 <body>
   @section('content')
     <h1 class="mb-8 mt-9 text-center text-2xl font-bold sm:text-3xl">Agregar prestamo</h1>
-    <div class="flex justify-center bg-gray-50">
+    <div class="flex justify-center">
       <form action="{{route('guardarPrestamo')}}" method="POST" class="w-full justify-center border p-6 shadow-md sm:w-1/2">
         @csrf
         <input type="hidden" name="user" value="{{$cliente->id}}">
@@ -29,6 +29,14 @@
         <div class="mb-5">
           <label for="cuotas">Número cuotas</label>
           <input type="number" name="numero_cuotas" oninput="calcularValorCuota()" id="cuotas" class="w-full rounded-md border p-2" placeholder="Ingrese el número de cuotas" required />
+        </div>
+        <div class="mb-5">
+          <label for="periodicidad">Periodicidad</label>
+          <select name="periodicidad" id="periodicidad" class="w-full rounded-md border p-2" required>
+            @foreach ($carteras as $cartera)
+              <option value="{{$cartera->id}}">{{$cartera->nombre}}</option> 
+            @endforeach
+          </select>
         </div>
         <div class="mb-5">
           <label for="periodicidad">Periodicidad</label>
