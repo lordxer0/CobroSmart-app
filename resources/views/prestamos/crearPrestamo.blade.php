@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <title>Agregar prestamo</title>
 </head>
 <body>
@@ -31,8 +34,8 @@
           <input type="number" name="numero_cuotas" oninput="calcularValorCuota()" id="cuotas" class="w-full rounded-md border p-2" placeholder="Ingrese el número de cuotas" required />
         </div>
         <div class="mb-5">
-          <label for="periodicidad">Periodicidad</label>
-          <select name="periodicidad" id="periodicidad" class="w-full rounded-md border p-2" required>
+          <label for="periodicidad">Cartera</label>
+          <select name="periodicidad" id="periodicidad" class="js-example-basic-single w-full rounded-md border p-2" required>
             @foreach ($carteras as $cartera)
               <option value="{{$cartera->id}}">{{$cartera->nombre}}</option> 
             @endforeach
@@ -57,4 +60,5 @@
     </div>
   @endsection
 </body>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </html>

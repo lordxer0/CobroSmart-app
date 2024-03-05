@@ -26,8 +26,7 @@ class CarteraController extends Controller
     }
 
     public function crearCartera()
-    {   
-
+    {
         return view('carteras.crearCartera');
     }
 
@@ -61,6 +60,10 @@ class CarteraController extends Controller
         }
        
         return redirect()->route('carteras')->with('msg', $mensaje);
+    }
+
+    public function detalleCartera($id){
+        
     }
 
 }

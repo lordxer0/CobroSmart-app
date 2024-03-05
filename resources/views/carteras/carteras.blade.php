@@ -36,7 +36,6 @@
                     <tr class="border-b odd:bg-white even:bg-gray-50">
                       <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">{{ $cartera->nombre }}</th>
                       <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">{{ $cartera->total_cartera }}</th>
-                      {{-- <td class="px-6 py-4">{{ $cliente->tipo_documento }}</td> --}}
                       <td class="flex gap-1 px-6 py-4">
                         <a href="{{route('editarCartera',['id' => $cartera->id])}}">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-black ">

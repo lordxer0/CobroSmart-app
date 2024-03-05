@@ -19,3 +19,7 @@ function cerrarAlerta() {
     var alerta = document.getElementById('miAlerta');
     alerta.style.display = 'none';
 }
+// Select2
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});

@@ -22,10 +22,6 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-route::get('/detalle', function () {
-    return view('carteras.detalle');
-});
-
 // Rutas prestamos
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/prestamos',[PrestamosController::class, 'index'])->name('prestamosindex');
