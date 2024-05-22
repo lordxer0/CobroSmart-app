@@ -46,8 +46,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //rutas de clientes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/clientes', [ClientesController::class,'index'])->name('clientes');
+    Route::get('/verCliente/{id}', [ClientesController::class,'verCliente'])->name('verCliente');
     Route::get('/crearCliente', [ClientesController::class,'CrearCliente'])->name('crearclientes');
     Route::get('/editarCliente/{id}', [ClientesController::class, 'editarCliente'])->name('editarCliente');
+    Route::post('/actualizarCliente', [ClientesController::class, 'actualizarCliente'])->name('actualizarCliente');
     Route::post('/guardarNuevoCliente', [ClientesController::class, 'guardarNuevoCliente'])->name('guardarNuevoCliente');
 });
 

@@ -35,7 +35,7 @@
         </div>
         <div class="mb-5">
           <label for="periodicidad">Cartera</label>
-          <select name="periodicidad" id="periodicidad" class="js-example-basic-single w-full rounded-md border p-2" required>
+          <select name="periodicidad" id="periodicidad" class="js-example-basic-single w-full rounded-md border p-2" style="width: 100%" required>
             @foreach ($carteras as $cartera)
               <option value="{{$cartera->id}}">{{$cartera->nombre}}</option> 
             @endforeach

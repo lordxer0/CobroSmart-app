@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Clientes;
+use Illuminate\Support\Facades\Validator;
 
 class ClientesController extends Controller
 {
@@ -41,20 +42,32 @@ class ClientesController extends Controller
         
         $guardado['usuario_id'] = $usuarioAutenticado->id;
 
-        Clientes::updateOrCreate(
-            ["id" => $Request->input('id', null),"identificacion" => $Request->input('identificacion', null)],
-            $guardado
-        );
+        $cliente = new Clientes($guardado);
+
+        $cliente->save();
 
         return redirect()->route('clientes')->with('msg', 'Proceso realizado exitosamente');
     }
 
     public function editarCliente($id)
     {   
-        
         $cliente = Clientes::findOrFail($id);
-        return view('clientes.crearCliente', compact('cliente'));
-
+        return view('clientes.editarCliente', compact('cliente'));
     }
 
+    public function actualizarCliente(Request $Request)
+    {   
+        $datos = $Request->all();
+        Validator::make($datos, [
+            'id' => 'required|numeric',
+        ])->validate();
+
+        return redirect()->route('clientes')->with('msg', 'Proceso realizado exitosamente');
+    }
+
+    public function verCliente($id)
+    {
+        $clientes = Clientes::findOrFail($id);
+        return view('clientes.verCliente', compact('clientes'));
+    }
 }
